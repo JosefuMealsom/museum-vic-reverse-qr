@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'source-sans';
+    src: url('assets/fonts/SourceSans3-Regular.ttf.woff');
+    font-weight: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
