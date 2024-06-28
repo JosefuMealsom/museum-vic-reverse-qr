@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-background">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qr Code prototype</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
-        integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
-        crossorigin="anonymous"></script>
-    <script src="main.websockets.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>QR code example</title>
+  <link rel="stylesheet" href="/src/index.css">
 </head>
 
-<body>
-    <p>Hello! This is your scanned content.</p>
-    <div id="content"></div>
+<body class="m-0">
+  <div id="root"></div>
 </body>
+<script type="module" src="/src/main.tsx"></script>
 
 </html>
