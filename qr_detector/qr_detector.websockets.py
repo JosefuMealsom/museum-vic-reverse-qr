@@ -2,6 +2,12 @@ import cv2
 import numpy
 from pyzbar.pyzbar import decode
 import socketio
+import argparse
+
+parser = argparse.ArgumentParser("qr_detector")
+parser.add_argument("content_id", help="The content id the camera is linked to", type=int)
+args = parser.parse_args()
+content_id = args.content_id
 
 video_stream = cv2.VideoCapture(0)
 sio = socketio.SimpleClient()
@@ -27,7 +33,7 @@ while True:
                                 [code.polygon[3].x, code.polygon[3].y]], numpy.int32)
             points = points.reshape((-1,1,2))
             frame = cv2.polylines(frame, [points], True, (0, 255, 0), 5)
-            sio.emit("qr_code_detected", code.data.decode("ascii"))
+            sio.emit("qr_code_detected", {"sessionID":code.data.decode("ascii"), "contentID": content_id})
     except:
         print("An error occured with the detection")
 

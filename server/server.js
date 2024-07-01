@@ -11,7 +11,7 @@ io.on("connection", (client) => {
   const throttledQRDetected = throttle(
     (data) => {
       console.debug("QR code detected", data);
-      io.to(data).emit("qr_code_detected", data);
+      io.to(data.sessionID).emit("qr_code_detected", data.contentID);
     },
     2000,
     { trailing: false }
