@@ -3,21 +3,33 @@ import numpy
 from pyzbar.pyzbar import decode
 import socketio
 import argparse
+import os
+
+def get_resized_dimensions(resized):
+    components = resized.split(",")
+    if len(components) != 2:
+        raise argparse.ArgumentTypeError("Incorrect number of arguments. Format is {width},{height}.")
+    return (int(components[0]), int(components[1]))
 
 parser = argparse.ArgumentParser("qr_detector")
-parser.add_argument("content_id", help="The content id the camera is linked to", type=int)
+parser.add_argument("--content_id", "-cid", help="The content id the camera is linked to", type=int, required=True)
+parser.add_argument("--resize_camera_input","-r",  help="Input: \{width\},\{height\}. Resizes the camera feed to the specified dimensions", type=get_resized_dimensions)
+
 args = parser.parse_args()
 content_id = args.content_id
+dimensions = args.resize_camera_input
 
 video_stream = cv2.VideoCapture(0)
-sio = socketio.SimpleClient()
 
-sio.connect('ws://localhost:5000', transports=['websocket'])
+socket_server_url = os.environ.get("SOCKET_SERVER_URL", 'ws://localhost:5000')
+sio = socketio.SimpleClient()
+sio.connect(socket_server_url, transports=['websocket'])
 
 while True:
     success, frame = video_stream.read()
 
-    #frame = cv2.resize(frame, (512, 512))
+    if dimensions != None:
+        frame = cv2.resize(frame, dimensions)
     #frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     #frame = cv2.threshold(frame, 50, 255, cv2.THRESH_BINARY)[1]
     try:
