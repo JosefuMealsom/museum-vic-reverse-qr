@@ -25,4 +25,12 @@ class SocketIoService {
   }
 }
 
-export default new SocketIoService("127.0.0.1", 5000);
+const url =
+  import.meta.env.VITE_WEBSOCKET_HOST || import.meta.env.DEV
+    ? "localhost:3000"
+    : undefined;
+const port =
+  import.meta.env.VITE_WEBSOCKET_PORT || import.meta.env.DEV ? 443 : undefined;
+
+// This will throw a runtime error, no problem at the moment
+export default new SocketIoService(url!, port!);

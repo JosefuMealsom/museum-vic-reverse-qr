@@ -29,6 +29,6 @@ io.on("connection", (client) => {
   client.on("disconnect", () => {});
 });
 
-const port = 5000;
+const port = 3000;
 console.info(`Server listening on port ${port}`);
 server.listen(port);
