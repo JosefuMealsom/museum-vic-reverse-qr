@@ -27,7 +27,7 @@ class SocketIoService {
 
 const url =
   import.meta.env.VITE_WEBSOCKET_HOST || import.meta.env.DEV
-    ? "localhost:3000"
+    ? "https://server-wandering-fire-1875.fly.dev/"
     : undefined;
 const port =
   import.meta.env.VITE_WEBSOCKET_PORT || import.meta.env.DEV ? 443 : undefined;
