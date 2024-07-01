@@ -13,7 +13,7 @@ def get_resized_dimensions(resized):
 
 parser = argparse.ArgumentParser("qr_detector")
 parser.add_argument("--content_id", "-cid", help="The content id the camera is linked to", type=int, required=True)
-parser.add_argument("--resize_camera_input","-r",  help="Input: \{width\},\{height\}. Resizes the camera feed to the specified dimensions", type=get_resized_dimensions)
+parser.add_argument("--resize_camera_input","-r",  help="Input: {width},{height}. Resizes the camera feed to the specified dimensions", type=get_resized_dimensions)
 parser.add_argument("--socket_server_url","-s",  help="The websocket server to connect to", default='ws://localhost:5000')
 
 args = parser.parse_args()
