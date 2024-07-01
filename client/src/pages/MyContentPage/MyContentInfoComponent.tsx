@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import copyData from "../../data/copy.json";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 export default function MyContentInfoComponent(props: { contentId: number }) {
   const content = copyData.find((item) => item.id === props.contentId);
