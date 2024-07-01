@@ -1,17 +1,32 @@
 import express from "express";
 import http from "http";
 import { Server } from "socket.io";
+import { throttle } from "underscore";
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server, { cors: { origin: "http://localhost:5173" } });
 
 io.on("connection", (client) => {
-  client.on("qr_code_detected", (data) => {
-    io.emit("qr_code_detected", data);
+  const throttledQRDetected = throttle(
+    (data) => {
+      console.debug("QR code detected", data);
+      io.to(data).emit("qr_code_detected", data);
+    },
+    2000,
+    { trailing: false }
+  );
+
+  client.on("qr_code_detected", throttledQRDetected);
+
+  client.on("set_session_id", (data) => {
+    console.debug("Setting session id: ", data);
+    client.join(data);
   });
 
   client.on("disconnect", () => {});
 });
 
-server.listen(5000);
+const port = 5000;
+console.info(`Server listening on port ${port}`);
+server.listen(port);

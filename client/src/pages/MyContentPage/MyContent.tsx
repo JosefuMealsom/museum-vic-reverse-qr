@@ -1,10 +1,33 @@
 import { Link } from "react-router-dom";
 import MyContentInfoComponent from "./MyContentInfoComponent";
 import HeaderDark from "../../components/HeaderDark";
+import { useEffect, useState } from "react";
+import SavedContentService from "../../services/saved-content.service";
+import parseIdsFromQuery from "../../services/query-parser.service";
 
 export default function MyContent() {
+  const [scannedContent, setScannedContent] = useState(
+    SavedContentService.getAllSavedContent()
+  );
+
+  // Not the best place to put this, but ok for now
+  useEffect(() => {
+    const ids = parseIdsFromQuery();
+
+    for (const id of ids) {
+      if (!SavedContentService.findSavedContent(id)) {
+        SavedContentService.saveContent(id);
+      }
+    }
+    setScannedContent(SavedContentService.getAllSavedContent());
+  }, []);
+
   function renderListInfoComponents() {
-    return [0, 1, 2, 3].map((itemId: number) => (
+    if (!scannedContent) {
+      return null;
+    }
+
+    return scannedContent.map((itemId: number) => (
       <div className="mb-2" key={itemId}>
         <MyContentInfoComponent contentId={itemId} />
       </div>

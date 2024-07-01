@@ -1,6 +1,6 @@
 import { Socket, io } from "socket.io-client";
 
-export default class SocketIoService {
+class SocketIoService {
   host: string;
   port: number;
   socket?: Socket;
@@ -19,4 +19,10 @@ export default class SocketIoService {
       callback(data);
     });
   }
+
+  setSessionId(sessionId: string) {
+    this.socket?.emit("set_session_id", sessionId);
+  }
 }
+
+export default new SocketIoService("127.0.0.1", 5000);

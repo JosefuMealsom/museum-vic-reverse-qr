@@ -1,5 +1,5 @@
 {
-  "name": "token-detection",
+  "name": "reverse-qr-code",
   "private": true,
   "version": "0.0.0",
   "type": "module",
