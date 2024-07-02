@@ -24,7 +24,11 @@ export default function QRCodePage() {
 
   useEffect(() => {
     socketIoService.on("qr_code_detected", (data) => {
-      console.log("qr code detected", data);
+      const contentId = Number(data);
+
+      if (!savedContentService.findSavedContent(contentId)) {
+        savedContentService.saveContent(Number(data));
+      }
     });
   }, []);
 

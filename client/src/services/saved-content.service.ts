@@ -16,6 +16,7 @@ class SavedContentService {
   setSessionID(sessionId: string) {
     localStorage.setItem("sessionId", sessionId);
   }
+
   fetchSessionID() {
     return localStorage.getItem("sessionId");
   }
