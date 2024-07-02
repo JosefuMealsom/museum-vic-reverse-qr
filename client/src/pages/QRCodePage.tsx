@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import HeaderDark from "../components/HeaderDark";
 import savedContentService from "../services/saved-content.service";
 import socketIoService from "../services/socket-io.service";
+import { toast } from "react-toastify";
 
 export default function QRCodePage() {
   const [qrCode, _] = useState(savedContentService.fetchSessionID());
@@ -27,6 +28,7 @@ export default function QRCodePage() {
       const contentId = Number(data);
 
       if (!savedContentService.findSavedContent(contentId)) {
+        toast("Content successfully added");
         savedContentService.saveContent(Number(data));
       }
     });
