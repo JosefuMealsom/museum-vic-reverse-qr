@@ -33,12 +33,10 @@ export default function QRCodePage() {
         toast("Content successfully added");
         savedContentService.saveContent(Number(data));
 
-        setTimeout(() => {
-          setTriggerVisualIndicator(true);
+        setTriggerVisualIndicator(true);
 
-          setTimeout(() => {
-            setTriggerVisualIndicator(false);
-          }, 1000);
+        setTimeout(() => {
+          setTriggerVisualIndicator(false);
         }, 1000);
       }
     });
