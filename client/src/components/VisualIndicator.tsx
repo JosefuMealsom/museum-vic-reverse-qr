@@ -56,7 +56,6 @@ export default function VisualIndicator(props: { shouldAnimate: boolean }) {
   }, [props.shouldAnimate]);
 
   function animate() {
-    console.log("anim");
     if (drawContext) {
       const { width: w, height: h } = dimensions;
       drawContext.clearRect(0, 0, w, h);
