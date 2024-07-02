@@ -5,10 +5,12 @@ import HeaderDark from "../components/HeaderDark";
 import savedContentService from "../services/saved-content.service";
 import socketIoService from "../services/socket-io.service";
 import { toast } from "react-toastify";
+import VisualIndicator from "../components/VisualIndicator";
 
 export default function QRCodePage() {
   const [qrCode, _] = useState(savedContentService.fetchSessionID());
   const [qrCodeImageUrl, setQrCodeImageUrl] = useState("");
+  const [triggerVisualIndicator, setTriggerVisualIndicator] = useState(false);
 
   useEffect(() => {
     if (!qrCode) return;
@@ -30,6 +32,14 @@ export default function QRCodePage() {
       if (!savedContentService.findSavedContent(contentId)) {
         toast("Content successfully added");
         savedContentService.saveContent(Number(data));
+
+        setTimeout(() => {
+          setTriggerVisualIndicator(true);
+
+          setTimeout(() => {
+            setTriggerVisualIndicator(false);
+          }, 1000);
+        }, 1000);
       }
     });
   }, []);
@@ -39,7 +49,12 @@ export default function QRCodePage() {
       <div>
         <HeaderDark className="p-5 absolute top-0 left-0 w-full" />
         <div className="w-full h-screen flex justify-center items-center flex-col">
-          <img className="w-full max-w-[40rem]" src={qrCodeImageUrl} />
+          <div className="relative w-full max-w-[40rem]">
+            <img className="w-full" src={qrCodeImageUrl} />
+            <div className="absolute top-0 left-0 w-full h-full">
+              <VisualIndicator shouldAnimate={triggerVisualIndicator} />
+            </div>
+          </div>
           <p className="font-source-sans font-bold text-base mb-8">
             Your code: {qrCode}
           </p>
