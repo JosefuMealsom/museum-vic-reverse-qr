@@ -25,11 +25,15 @@ class SocketIoService {
   }
 }
 
-const url =
-  import.meta.env.VITE_WEBSOCKET_HOST || import.meta.env.DEV
-    ? "http://localhost:3000"
-    : undefined;
-const port =
-  import.meta.env.VITE_WEBSOCKET_PORT || import.meta.env.DEV ? 443 : undefined;
+// const url =
+//   import.meta.env.VITE_WEBSOCKET_HOST || import.meta.env.DEV
+//     ? "http://localhost:3000"
+//     : undefined;
+// const port =
+//   import.meta.env.VITE_WEBSOCKET_PORT || import.meta.env.DEV ? 443 : undefined;
+// export default new SocketIoService("http://localhost", 3000);
 
-export default new SocketIoService(url!, port!);
+export default new SocketIoService(
+  "wss://server-wandering-fire-1875.fly.dev",
+  443
+);
