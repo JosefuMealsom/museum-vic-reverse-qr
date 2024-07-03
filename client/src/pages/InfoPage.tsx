@@ -4,17 +4,19 @@ import ActionsNavButton from "../components/ActionsNavButton";
 import HeaderLight from "../components/HeaderLight";
 import SavedContentService from "../services/saved-content.service";
 import copyData from "../data/copy.json";
+import { useParams } from "react-router-dom";
 
-export default function InfoPage(props: { contentId: number }) {
-  const content = copyData.find((item) => item.id === props.contentId);
+export default function InfoPage() {
+  const contentId = Number(useParams<{ id: string }>().id);
+  const content = copyData.find((item) => item.id === contentId);
   const imageUrl = new URL(`../assets/${content?.heroImage}`, import.meta.url)
     .href;
   const description = content?.description;
   const title = content?.title;
 
   useEffect(() => {
-    if (!SavedContentService.findSavedContent(props.contentId)) {
-      SavedContentService.saveContent(props.contentId);
+    if (!SavedContentService.findSavedContent(contentId)) {
+      SavedContentService.saveContent(contentId);
       toast("Added to your saved actions", {
         position: "top-center",
       });

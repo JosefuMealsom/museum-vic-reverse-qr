@@ -30,20 +30,8 @@ const router = createBrowserRouter([
         element: <MyContent />,
       },
       {
-        path: "/my-content/penguins",
-        element: <InfoPage contentId={0} />,
-      },
-      {
-        path: "/my-content/flowers",
-        element: <InfoPage contentId={1} />,
-      },
-      {
-        path: "/my-content/save-the-sea-slugs",
-        element: <InfoPage contentId={2} />,
-      },
-      {
-        path: "/my-content/help-tane",
-        element: <InfoPage contentId={3} />,
+        path: "/my-content/:id",
+        element: <InfoPage />,
       },
     ],
   },
