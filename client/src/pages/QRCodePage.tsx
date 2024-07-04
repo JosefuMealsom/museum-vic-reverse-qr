@@ -53,9 +53,6 @@ export default function QRCodePage() {
               <VisualIndicator shouldAnimate={triggerVisualIndicator} />
             </div>
           </div>
-          <p className="font-source-sans font-bold text-base mb-8">
-            Your code: {qrCode}
-          </p>
           <Link to="/my-content">
             <button
               className="bg-mv-color px-5 py-2 text-white rounded-lg block font-bold"
