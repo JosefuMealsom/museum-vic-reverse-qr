@@ -14,10 +14,10 @@ if($?){
     cd ..\qr_detector
     mamba activate qr_code_app
 
-    Start-Process python ".\qr_detector.py 0 -d 0 --show-window"
-    Start-Process python ".\qr_detector.py 1 -d 1 --show-window"
-    Start-Process python ".\qr_detector.py 2 -d 2 --show-window"
-    Start-Process python ".\qr_detector.py 3 -d 3 --show-window"
+    Start-Process python ".\qr_detector.py 0 -d 0 --show-window -s http://localhost:3000"
+    Start-Process python ".\qr_detector.py 1 -d 1 --show-window -s http://localhost:3000"
+    Start-Process python ".\qr_detector.py 2 -d 2 --show-window -s http://localhost:3000"
+    Start-Process python ".\qr_detector.py 3 -d 3 --show-window -s http://localhost:3000"
 }
 
 cd ..

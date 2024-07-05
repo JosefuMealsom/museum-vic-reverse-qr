@@ -8,6 +8,7 @@ export default function ContentToast(props: { contentId: number }) {
     .href;
   const [shouldAnimate, setShouldAnimate] = useState(false);
   const [startAnimate, setStartAnimate] = useState(false);
+  const [isHidden, setHidden] = useState(false);
 
   useEffect(() => {
     setShouldAnimate(true);
@@ -20,13 +21,17 @@ export default function ContentToast(props: { contentId: number }) {
       setShouldAnimate(false);
       setStartAnimate(false);
     }, 5000);
+
+    setTimeout(() => {
+      setHidden(true);
+    }, 5300);
   }, []);
 
   return (
     <div
       className={`w-full bg-white border p-3 shadow-lg transition-transform duration-300 ${
         shouldAnimate && startAnimate ? "translate-x-0" : "translate-x-full"
-      } flex justify-between items-center`}
+      } ${isHidden ? "hidden" : ""} flex justify-between items-center`}
     >
       <div>
         <h2 className="font-source-sans mb-1 text-sm font-bold">
