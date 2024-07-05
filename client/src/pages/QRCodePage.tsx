@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import HeaderDark from "../components/HeaderDark";
 import savedContentService from "../services/saved-content.service";
 import socketIoService from "../services/socket-io.service";
-import { toast } from "react-toastify";
 import VisualIndicator from "../components/VisualIndicator";
 import ContentToastContainer from "../components/ContentToastContainer";
 import toastCommunicatorService from "../services/toast-communicator.service";
