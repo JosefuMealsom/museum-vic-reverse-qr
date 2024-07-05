@@ -6,6 +6,8 @@ import savedContentService from "../services/saved-content.service";
 import socketIoService from "../services/socket-io.service";
 import { toast } from "react-toastify";
 import VisualIndicator from "../components/VisualIndicator";
+import ContentToastContainer from "../components/ContentToastContainer";
+import toastCommunicatorService from "../services/toast-communicator.service";
 
 export default function QRCodePage() {
   const [qrCode, _] = useState(savedContentService.fetchSessionID());
@@ -30,7 +32,7 @@ export default function QRCodePage() {
       const contentId = Number(data);
 
       if (!savedContentService.findSavedContent(contentId)) {
-        toast("Content successfully added");
+        toastCommunicatorService.toast(contentId);
         savedContentService.saveContent(Number(data));
 
         setTriggerVisualIndicator(true);
@@ -65,6 +67,9 @@ export default function QRCodePage() {
               View my scanned content
             </button>
           </Link>
+        </div>
+        <div className="absolute top-0 left-0 w-full">
+          <ContentToastContainer />
         </div>
       </div>
     );
