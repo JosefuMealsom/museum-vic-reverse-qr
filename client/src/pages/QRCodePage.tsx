@@ -40,6 +40,10 @@ export default function QRCodePage() {
         }, 1000);
       }
     });
+
+    return () => {
+      socketIoService.removeAllListeners();
+    };
   }, []);
 
   function renderQRCode() {

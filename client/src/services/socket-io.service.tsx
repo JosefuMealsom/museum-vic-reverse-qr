@@ -20,6 +20,10 @@ class SocketIoService {
     });
   }
 
+  removeAllListeners() {
+    this.socket?.removeAllListeners();
+  }
+
   setSessionId(sessionId: string) {
     this.socket?.emit("set_session_id", sessionId);
   }
