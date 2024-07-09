@@ -61,7 +61,6 @@ export default function InfoPage() {
               Connect with organisations
             </button>
           </div>
-          a
           <ActionsNavButton />
         </div>
       </div>
