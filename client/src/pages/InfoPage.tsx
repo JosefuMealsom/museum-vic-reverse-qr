@@ -11,8 +11,6 @@ export default function InfoPage() {
   const content = copyData.find((item) => item.id === contentId);
   const imageUrl = new URL(`../assets/${content?.heroImage}`, import.meta.url)
     .href;
-  const description = content?.description;
-  const title = content?.title;
 
   useEffect(() => {
     if (!SavedContentService.findSavedContent(contentId)) {
@@ -23,6 +21,18 @@ export default function InfoPage() {
     }
   }, []);
 
+  function renderActions() {
+    return (
+      <ul className="list-disc p-5">
+        {content?.actions.map((action) => (
+          <li key={action.description}>
+            <strong>{action.heading}</strong>: {action.description}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   return (
     <div>
       <div className="absolute top-0 left-0 w-full p-5 z-10">
@@ -32,14 +42,26 @@ export default function InfoPage() {
         <div className="w-full h-[30rem] object-cover relative">
           <img src={imageUrl} className="w-full h-full object-cover" />
           <h1 className="text-white absolute bottom-0 left-0 p-5 font-black text-4xl">
-            {title}
+            {content?.title}
           </h1>
         </div>
-        <p
-          className="p-5"
-          dangerouslySetInnerHTML={{ __html: description || "" }}
-        ></p>
-        <div className="flex justify-center w-full">
+        <div className="p-5">
+          <p>{content?.description}</p>
+          {renderActions()}
+          <strong>
+            Find out more about organisations making a difference.
+          </strong>
+        </div>
+        <div className="flex justify-center items-center w-full mb-6 px-2 flex-col">
+          <div>
+            <button
+              className="bg-[#FFB219] px-2 py-2 text-white rounded-lg block font-bold mb-3"
+              type="button"
+            >
+              Connect with organisations
+            </button>
+          </div>
+          a
           <ActionsNavButton />
         </div>
       </div>
