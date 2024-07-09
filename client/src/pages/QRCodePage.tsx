@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import QRCode from "qrcode";
 import { Link } from "react-router-dom";
 import HeaderDark from "../components/HeaderDark";
@@ -12,6 +12,7 @@ export default function QRCodePage() {
   const [qrCode, _] = useState(savedContentService.fetchSessionID());
   const [qrCodeImageUrl, setQrCodeImageUrl] = useState("");
   const [triggerVisualIndicator, setTriggerVisualIndicator] = useState(false);
+  const alreadyScannedRef = useRef<number[]>([]);
 
   useEffect(() => {
     if (!qrCode) return;
@@ -26,19 +27,25 @@ export default function QRCodePage() {
     generateCode();
   }, [qrCode]);
 
+  function triggerScanVisuals(contentId: number) {
+    toastCommunicatorService.toast(contentId);
+    setTriggerVisualIndicator(true);
+
+    setTimeout(() => {
+      setTriggerVisualIndicator(false);
+    }, 1000);
+  }
+
   useEffect(() => {
     socketIoService.on("qr_code_detected", (data) => {
       const contentId = Number(data);
 
       if (!savedContentService.findSavedContent(contentId)) {
-        toastCommunicatorService.toast(contentId);
-        savedContentService.saveContent(Number(data));
-
-        setTriggerVisualIndicator(true);
-
-        setTimeout(() => {
-          setTriggerVisualIndicator(false);
-        }, 1000);
+        triggerScanVisuals(contentId);
+        savedContentService.saveContent(contentId);
+      } else if (!alreadyScannedRef.current.includes(contentId)) {
+        triggerScanVisuals(contentId);
+        alreadyScannedRef.current.push(contentId);
       }
     });
 
