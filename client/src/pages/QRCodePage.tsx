@@ -70,7 +70,7 @@ export default function QRCodePage() {
               className="bg-mv-color px-5 py-2 text-white rounded-lg block font-bold"
               type="button"
             >
-              View my scanned content
+              View my scanned actions
             </button>
           </Link>
         </div>

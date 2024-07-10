@@ -38,7 +38,7 @@ export default function MyContent() {
     <div>
       <HeaderDark className="p-5" />
       <div className="font-source-sans mb-5 p-3">
-        <h1 className="font-black text-2xl mb-3">Your scanned content</h1>
+        <h1 className="font-black text-2xl mb-3">Your scanned actions</h1>
         {renderListInfoComponents()}
       </div>
       <div className="flex justify-center mb-10">
