@@ -3,7 +3,7 @@
     "id": 0,
     "title": "Save the turtles",
     "heroImage": "hero_images/turtle_2.jpg",
-    "description": "Sadly, sea turtles face numerous threats that endanger their survival, including climate change, plastic pollution, coastal development and commercial fishing. Here’s how you can make a difference:",
+    "description": "Sadly, sea turtles face numerous threats that endanger their survival, including climate change, plastic pollution, coastal development and commercial fishing. Here's how you can make a difference:",
     "actions": [
       {
         "heading": "Reduce Plastic Use",
@@ -31,7 +31,7 @@
     "id": 1,
     "title": "Help the octopuses",
     "heroImage": "hero_images/octopus_3.jpg",
-    "description": "Octopus are vital to our marine ecosystems but face numerous threats to their survival including. Here’s how you can make a difference: ",
+    "description": "Octopus are vital to our marine ecosystems but face numerous threats to their survival including. Here's how you can make a difference: ",
     "actions": [
       {
         "heading": "Choose Sustainable Seafood",
@@ -59,7 +59,7 @@
     "id": 2,
     "title": "Protect the crayfish",
     "heroImage": "hero_images/lobster_2.jpg",
-    "description": "Australia's crayfish are integral to our unique aquatic ecosystems but face various threats to their survival. Here’s how you can make a difference:",
+    "description": "Australia's crayfish are integral to our unique aquatic ecosystems but face various threats to their survival. Here's how you can make a difference:",
     "actions": [
       {
         "heading": "Protect Riparian Zones",
@@ -87,27 +87,27 @@
     "id": 3,
     "title": "Collaborate with the crabs",
     "heroImage": "hero_images/crab_1.jpg",
-    "description": "Australia’s Giant Crab or Tasmanian Giant Crab is the largest species of crab found in Australian waters, but they need your help to ensure their survival. Here’s how you can make a difference:",
+    "description": "Australia's giant crab or Tasmanian giant crab is the largest species of crab found in Australian waters, but they need your help to ensure their survival. Here's how you can make a difference:",
     "actions": [
       {
         "heading": "Support Sustainable Fishing Practices",
-        "description": "Choose seafood certified by sustainable seafood initiatives and fisheries that adhere to responsible harvesting practices to reduce the impact on Giant Crab populations."
+        "description": "Choose seafood certified by sustainable seafood initiatives and fisheries that adhere to responsible harvesting practices to reduce the impact on giant crab populations."
       },
       {
         "heading": "Advocate for Marine Conservation",
-        "description": "Support the establishment of marine protected areas (MPAs) and conservation zones where Giant Crabs and other marine species can thrive without disturbance."
+        "description": "Support the establishment of marine protected areas (MPAs) and conservation zones where giant crabs and other marine species can thrive without disturbance."
       },
       {
         "heading": "Reduce Coastal Pollution",
-        "description": "Participate in beach clean-ups, reduce plastic waste, and support initiatives that aim to improve water quality along coastal areas where Giant Crabs reside."
+        "description": "Participate in beach clean-ups, reduce plastic waste, and support initiatives that aim to improve water quality along coastal areas where giant crabs reside."
       },
       {
         "heading": "Educate Others",
-        "description": "Raise awareness about the importance of Giant Crabs in marine ecosystems and the threats they face, encouraging others to take action to protect them."
+        "description": "Raise awareness about the importance of giant crabs in marine ecosystems and the threats they face, encouraging others to take action to protect them."
       },
       {
         "heading": "Report Illegal Fishing Activities",
-        "description": "Report any illegal harvesting or poaching of Giant Crabs to relevant authorities to help enforce regulations and protect their populations."
+        "description": "Report any illegal harvesting or poaching of giant crabs to relevant authorities to help enforce regulations and protect their populations."
       }
     ]
   },
@@ -115,11 +115,11 @@
     "id": 4,
     "title": "Help the seadragons",
     "heroImage": "hero_images/seahorse_1.jpg",
-    "description": "The Australian Ruby Seadragon captivates with its rare beauty and mysterious nature. Despite its captivating allure, the Australian Ruby Seadragon faces several threats including habitat loss, climate change, pollution and commercial fishing. Here’s how you can make a difference:",
+    "description": "The Australian Ruby seadragon captivates with its rare beauty and mysterious nature. Despite its captivating allure, the Australian ruby seadragon faces several threats including habitat loss, climate change, pollution and commercial fishing. Here's how you can make a difference:",
     "actions": [
       {
         "heading": "Support Marine Protected Areas",
-        "description": "Advocate for the establishment and expansion of marine protected areas (MPAs) where the Ruby Seadragon and other marine species can thrive undisturbed."
+        "description": "Advocate for the establishment and expansion of marine protected areas (MPAs) where the ruby seadragon and other marine species can thrive undisturbed."
       },
       {
         "heading": "Promote Sustainable Fishing Practices",
@@ -131,11 +131,11 @@
       },
       {
         "heading": "Educate Others",
-        "description": "Raise awareness about the Australian Ruby Seadragon and the threats it faces, inspiring others to take action to protect this unique species and its habitat."
+        "description": "Raise awareness about the Australian ruby seadragon and the threats it faces, inspiring others to take action to protect this unique species and its habitat."
       },
       {
         "heading": "Support Research and Conservation Efforts",
-        "description": "Donate to or volunteer with organizations and research projects dedicated to studying and conserving the Ruby Seadragon and its marine ecosystem."
+        "description": "Donate to or volunteer with organizations and research projects dedicated to studying and conserving the ruby seadragon and its marine ecosystem."
       }
     ]
   }
