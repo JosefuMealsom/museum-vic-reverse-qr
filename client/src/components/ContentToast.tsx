@@ -38,7 +38,7 @@ export default function ContentToast(props: { contentId: number }) {
     }
     return (
       <h2 className="font-source-sans mb-1 text-sm font-bold">
-        Content already saved
+        Content scanned!
       </h2>
     );
   }
