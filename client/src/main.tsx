@@ -6,16 +6,12 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import QRCodePage from "./pages/QRCodePage";
 import MyContent from "./pages/MyContentPage/MyContent";
 import savedContentService from "./services/saved-content.service";
-import SocketIoService from "./services/socket-io.service";
 import InfoPage from "./pages/InfoPage";
 
 // Ideally would be done by the server and via a cookie, but doesn't matter at this point
 if (!savedContentService.fetchSessionID()) {
   savedContentService.setSessionID(crypto.randomUUID());
 }
-
-SocketIoService.connect();
-SocketIoService.setSessionId(savedContentService.fetchSessionID()!);
 
 const router = createBrowserRouter([
   {

@@ -1,4 +1,5 @@
 import { Socket, io } from "socket.io-client";
+import savedContentService from "./saved-content.service";
 
 class SocketIoService {
   host: string;
@@ -12,6 +13,7 @@ class SocketIoService {
 
   connect() {
     this.socket = io(`${this.host}:${this.port}`);
+    this.setSessionId(savedContentService.fetchSessionID()!);
   }
 
   on(messageName: string, callback: (data: any) => any) {

@@ -37,19 +37,30 @@ export default function QRCodePage() {
   }
 
   useEffect(() => {
-    socketIoService.on("qr_code_detected", (data) => {
-      const contentId = Number(data);
+    const onFocus = () => {
+      socketIoService.connect();
+      socketIoService.on("qr_code_detected", (data) => {
+        const contentId = Number(data);
 
-      if (!savedContentService.findSavedContent(contentId)) {
-        triggerScanVisuals(contentId);
-        savedContentService.saveContent(contentId);
-      } else if (!alreadyScannedRef.current.includes(contentId)) {
-        triggerScanVisuals(contentId);
-        alreadyScannedRef.current.push(contentId);
-      }
-    });
+        if (!savedContentService.findSavedContent(contentId)) {
+          triggerScanVisuals(contentId);
+          savedContentService.saveContent(contentId);
+        } else if (!alreadyScannedRef.current.includes(contentId)) {
+          triggerScanVisuals(contentId);
+          alreadyScannedRef.current.push(contentId);
+        }
+      });
+    };
+    const onBlur = () => socketIoService.removeAllListeners();
+
+    onFocus();
+
+    window.addEventListener("focus", onFocus);
+    window.addEventListener("blur", onBlur);
 
     return () => {
+      window.removeEventListener("focus", onFocus);
+      window.removeEventListener("blur", onBlur);
       socketIoService.removeAllListeners();
     };
   }, []);
