@@ -13,7 +13,7 @@ def get_resized_dimensions(resized):
 parser = argparse.ArgumentParser("qr_detector")
 parser.add_argument("content_id", help="The content id the camera is linked to", type=int)
 parser.add_argument("--resize_camera_input","-r",  help="Input: {width},{height}. Resizes the camera feed to the specified dimensions", type=get_resized_dimensions)
-parser.add_argument("--socket_server_url","-s",  help="The websocket server to connect to", default='wss://server-wandering-fire-1875.fly.dev')
+parser.add_argument("--socket_server_url","-s",  help="The websocket server to connect to")
 parser.add_argument("--device-index","-d",  help="The usb port the camera is connected to", default=0, type=int)
 parser.add_argument("--show-window","-w",  help="Whether to hide the open cv output window", action=argparse.BooleanOptionalAction)
 
